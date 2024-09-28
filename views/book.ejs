@@ -1,0 +1,41 @@
+<%- include('partial/header.ejs') %>
+<div class="bookList">
+    <div class="a-book">
+        <img src=<%= book.url %> alt="book img" style="height: 20rem">
+        <a href="/book/<%= book.id %>"><h4><%= book.name %> by <%= book.author %></h4></a>
+        <h5>Date read: <%= book.read_date.slice(0, 10) %></h5>
+        <h5>My rating: <%= book.rating %>/10</h5>
+        <p><%= book.review %></p>
+        <div class="modify">
+            <a class="delete" href="/book/<%= book.id %>/delete">Delete book</a>
+         <a class="edit" href="/book/<%= book.id %>/edit">Edit</a>
+        </div>
+        
+    </div>
+    <h5><a href=<%= book.amazon_link%>>Amazon Link</a></h5>
+    <h5>Read my other <a href="/">notes</a></h5>
+    <hr>
+
+    <h4>My Notes</h4>
+    <br>
+    <% notes.forEach(note => {%>
+        <div class="a-note">
+            <p><%= note.content %> </p>
+        <div class="modify">
+            <a class="delete" href="/note/<%= note.id %>/delete">Delete</a>
+            <a class="edit" href="/note/<%= note.id %>/edit">Edit</a>
+        
+        </div>
+        <br>
+        </div>
+    <%}); %>
+
+    <form action="/book/<%= book.id %>/note" id="note-form" method="post">
+     <textarea name="newNoteContent" id="" placeholder="Add note here"></textarea>
+     <button class="btn btn-outline-light" type="submit">Add Note</button>
+    </form>
+</div>
+
+
+
+<%- include('partial/footer.ejs') %>

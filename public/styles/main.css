@@ -1,0 +1,112 @@
+body{
+    font-family: "Montserrat", system-ui;
+    
+
+    position: relative;
+    
+}
+
+p{
+    margin-bottom: 0.5rem;
+}
+footer{
+    text-align: center;
+   
+    width: 100%;
+    padding: 1rem 0;
+    color: white;
+}
+
+.active{
+    color: #ffffffff !important;
+}
+
+#main-content{
+    color: #ffffffff;
+    width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh
+}
+
+#main-content > *{
+    
+    margin-bottom: 2rem;
+}
+#main-content a {
+    color: #ffffffff;
+}
+.bookList{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.bookList >h5 {
+    margin-bottom: 2rem;
+}
+.bookList >hr {
+    margin-bottom: 2rem;
+}
+.a-book{
+    display: block;
+    width: 100%;
+    height: max-content;
+    margin-bottom: 1rem;
+}
+.a-book > img{
+    display: block;
+    float: left;
+    width: auto;
+    height: 13rem;
+    margin: 0 1rem 0 0;
+}
+
+.a-book > a{
+    color: #ffffff;
+}
+
+#note-form{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 60%;
+    align-items: center;
+}
+#note-form textarea{
+    height: 10rem;
+    width: 30rem;
+    border-radius: 0.5rem;
+}
+#note-form button{
+    height: 3rem;
+    width: 10rem;
+}
+
+@media screen and (max-width: 901px) {
+    #note-form{
+        flex-direction: column;
+        width: 100%;
+    }
+    #note-form textarea{
+        width: 100%;
+    }
+    #note-form button{
+    height: 3rem;
+    width: 100%;
+    }
+}
+
+.modify{
+    display: flex;
+    gap: 1rem;
+    flex-direction: row-reverse;
+    
+    
+}
+.a-note{
+    margin-bottom: 1.5rem;
+    background-color: #a8a8a825;
+    padding: 1rem 1rem 0 1rem ;
+    border-radius: 1.5rem;
+}

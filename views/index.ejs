@@ -1,0 +1,24 @@
+<%- include('partial/header.ejs') %>
+
+
+<h3>Book I have read</h3>
+<p>
+	Tiny summary but detailed notes for each. Use the ISBN number to find it from
+	your local library or anywhere else. This page will constantly update as I
+	read more, so bookmark it if you want to check back in a few months.
+</p>
+<div class="bookList">
+<% bookList.forEach(book => { %>
+    <div class="a-book">
+        <img src=<%= book.url %> alt="book img">
+        <a href="/book/<%= book.id %>"><h4><%= book.name %> by <%= book.author %></h4></a>
+        <h5>Date read: <%= book.read_date.slice(0, 10) %></h5>
+        <h5>My rating: <%= book.rating %>/10</h5>
+        <p><%= book.review %></p>
+    </div>
+    <h5>Read my <a href="/book/<%= book.id %>">notes</a>, or go to the <a href=<%= book.amazon_link%>>Amazon</a> page for details and reviews.</h5>
+    <hr>
+<% }); %>
+</div>
+ 
+<%- include('partial/footer.ejs') %>

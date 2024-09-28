@@ -1,0 +1,62 @@
+<%- include('partial/header.ejs') %>
+
+<div class="bookList">
+    
+    <% if(!locals.book) {%>
+        <form action="/add-book" method="post">
+            <label for="isbn">ISBN:</label>
+            <input type="text" id="isbn" name="isbn"  required><br><br>
+
+            <label for="name">Book Name:</label>
+            <input type="text" id="name" name="name"  required><br><br>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author"  required><br><br>
+
+            <label for="read_date">Read Date:</label>
+            <input type="date" id="read_date" name="read_date" required><br><br>
+
+            <label for="rating">Rating (1-10):</label>
+            <input type="number" id="rating" name="rating" min="1" max="10"  required><br><br>
+
+            <label for="review">Review:</label><br>
+            <textarea id="review" name="review" rows="4" cols="50" required></textarea><br><br>
+
+            <label for="amazon_link">Amazon Link:</label>
+            <input type="url" id="amazon_link" name="amazon_link" required><br><br>
+
+            <button class="btn btn-outline-light" type="submit">Add Book</button>
+
+        </form>
+    <%} else {%>
+        <form action="/modify-book/<%=book.id%>" method="post"> 
+         
+            <label for="isbn">ISBN:</label>
+            <input type="text" id="isbn" name="isbn" value=<%= book.isbn %>  required><br><br>
+
+            <label for="name">Book Name:</label>
+            <input type="text" id="name" name="name"  value="<%= book.name %>" required><br><br>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value="<%= book.author %>"  required><br><br>
+
+            <label for="read_date">Read Date:</label>
+            <input type="date" id="read_date" name="read_date" value="<%= book.read_date.slice(0,10) %>" required><br><br>
+
+            <label for="rating">Rating (1-10):</label>
+            <input type="number" id="rating" name="rating" min="1" max="10" value=<%= book.rating %>  required><br><br>
+
+            <label for="review">Review:</label><br>
+            <textarea id="review" name="review" rows="4" cols="50"  required><%= book.review %></textarea><br><br>
+
+            <label for="amazon_link">Amazon Link:</label>
+            <input type="url" id="amazon_link" name="amazon_link" value="<%= book.amazon_link %>" required><br><br>
+
+            <button class="btn btn-outline-light" type="submit">Modify Book</button>
+        </form>
+        
+    <%}%>
+
+</div>
+
+<%- include('partial/footer.ejs') %>

@@ -1,0 +1,20 @@
+<%- include('partial/header.ejs') %>
+
+<div class="bookList">
+    
+    
+        <form action="/modify-note/<%=note.id%>" method="post"> 
+            <label for="content">Note Content:</label>
+            <input type="text" id="content" name="content" value="<%= note.content %>"  required><br><br>
+
+            <input type="hidden" name="book_id" value=<%= note.book_id%>>
+            
+            
+            <button class="btn btn-outline-light" type="submit">Modify Note</button>
+        </form>
+        
+   
+
+</div>
+
+<%- include('partial/footer.ejs') %>
